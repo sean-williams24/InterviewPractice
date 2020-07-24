@@ -17,6 +17,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         
+        var arr = [1, 2, 3, 2, 1, 2, 4]
+        arr.sort()
+
         
         
         // Tuples
@@ -56,9 +59,36 @@ class ViewController: UIViewController {
             }
         }.resume()
 
+        print(getProductsOfAllIntsExceptAtIndex(nums))
+        print(getProductsOfAllIntsExceptAtIndex([0, 0, 0, 0]))
+        print(getProductsOfAllIntsExceptAtIndex([]))
+        
     }
     
-
+    var nums = [1, 7, 3, 4]
+    
+    
+    
+    func getProductsOfAllIntsExceptAtIndex(_ arr: [Int]) -> [Int] {
+        var products: [Int] = []
+        var index = 0
+        var product = 1
+        
+        while index < arr.count {
+            
+            for (i, num) in arr.enumerated() {
+                if i != index {
+                    product *= num
+                }
+            }
+            
+            index += 1
+            products.append(product)
+            product = 1
+        }
+        
+        return products
+    }
 
 
 }
