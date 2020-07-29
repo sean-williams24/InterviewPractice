@@ -38,6 +38,13 @@ class ViewController: UIViewController {
         print(name2.1)
         
         
+        // Assert
+        
+        let tup = (1, 5, 5, 5, 6, 7, 7, 7, 5, 7, 3, 2, 5, 6, "Sean")
+        assert(tup.0 == 1, "Does not equal 1")
+        
+        
+        
         // Network Request
         imageView.frame = view.frame
         imageView.backgroundColor = .red
@@ -59,37 +66,30 @@ class ViewController: UIViewController {
             }
         }.resume()
 
-        print(getProductsOfAllIntsExceptAtIndex(nums))
-        print(getProductsOfAllIntsExceptAtIndex([0, 0, 0, 0]))
-        print(getProductsOfAllIntsExceptAtIndex([]))
+        swapTwoItems(&someInt, &anotherInt)
+        print(someInt, anotherInt)
+        swapTwoItems(&someString, &anotherString)
+        print(someString, anotherString)
+        
         
     }
     
-    var nums = [1, 7, 3, 4]
+
+    // Generics
     
+    var someInt = 3
+    var anotherInt = 107
+    var someString = "hello"
+    var anotherString = "world"
     
-    
-    func getProductsOfAllIntsExceptAtIndex(_ arr: [Int]) -> [Int] {
-        var products: [Int] = []
-        var index = 0
-        var product = 1
-        
-        while index < arr.count {
-            
-            for (i, num) in arr.enumerated() {
-                if i != index {
-                    product *= num
-                }
-            }
-            
-            index += 1
-            products.append(product)
-            product = 1
-        }
-        
-        return products
+    func swapTwoItems<T>(_ a: inout T, _ b: inout T) {
+        let tempA = b
+        b = a
+        a = tempA
     }
 
 
 }
+
+
 
