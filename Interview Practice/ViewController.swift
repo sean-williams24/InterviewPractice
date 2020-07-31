@@ -6,21 +6,30 @@
 //  Copyright © 2020 Sean Williams. All rights reserved.
 //
 
+import AVFoundation
 import UIKit
 
 class ViewController: UIViewController {
     
     let imageView = UIImageView()
-
+    var purrSound: AVAudioPlayer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(playPurr))
+        
+        // FileManager
+        
+        if let items = try? FileManager.default.contentsOfDirectory(atPath: NSHomeDirectory()) {
+            print(items)
+        }
         
         var arr = [1, 2, 3, 2, 1, 2, 4]
         arr.sort()
-
         
+        let sortedArr = arr.sorted(by: <)
+        print(sortedArr)
         
         // Tuples
         
@@ -44,6 +53,13 @@ class ViewController: UIViewController {
         assert(tup.0 == 1, "Does not equal 1")
         
         
+        
+        // CADisplayLink
+        
+        let displayLink = CADisplayLink(target: self, selector: #selector(update))
+        displayLink.add(to: .current, forMode: .common)
+        
+
         
         // Network Request
         imageView.frame = view.frame
@@ -70,8 +86,7 @@ class ViewController: UIViewController {
         print(someInt, anotherInt)
         swapTwoItems(&someString, &anotherString)
         print(someString, anotherString)
-        
-        
+
     }
     
 
@@ -87,8 +102,30 @@ class ViewController: UIViewController {
         b = a
         a = tempA
     }
+    
+    
+    // CADisplayLink
+    
+    @objc func update() {
+//        print("Updating")
+    }
 
 
+    // AVAudioPlayer
+    
+    @objc func playPurr() {
+        let path = Bundle.main.path(forResource: "hello.mp3", ofType: nil)!
+        let url = URL(fileURLWithPath: path)
+//        let asset = NSDataAsset(name: "hello")!
+        
+        do {
+            purrSound = try AVAudioPlayer(contentsOf: url)
+//            purrSound = try AVAudioPlayer(data: asset.data)
+            purrSound?.play()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }
 
 

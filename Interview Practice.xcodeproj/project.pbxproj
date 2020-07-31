@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE7F3E9F24D44E3F00B63E64 /* hello.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE7F3E9E24D44E3F00B63E64 /* hello.mp3 */; };
 		CEF8303124B49E510091542F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF8303024B49E510091542F /* AppDelegate.swift */; };
 		CEF8303324B49E510091542F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF8303224B49E510091542F /* SceneDelegate.swift */; };
 		CEF8303524B49E510091542F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF8303424B49E510091542F /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE7F3E9E24D44E3F00B63E64 /* hello.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hello.mp3; sourceTree = "<group>"; };
 		CEF8302D24B49E510091542F /* Interview Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Interview Practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF8303024B49E510091542F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEF8303224B49E510091542F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,9 +78,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE7F3E9D24D44E2700B63E64 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				CE7F3E9E24D44E3F00B63E64 /* hello.mp3 */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 		CEF8302424B49E510091542F = {
 			isa = PBXGroup;
 			children = (
+				CE7F3E9D24D44E2700B63E64 /* Audio */,
 				CEF8302F24B49E510091542F /* Interview Practice */,
 				CEF8304624B49E570091542F /* Interview PracticeTests */,
 				CEF8305124B49E570091542F /* Interview PracticeUITests */,
@@ -235,6 +246,7 @@
 				CEF8303D24B49E570091542F /* LaunchScreen.storyboard in Resources */,
 				CEF8303A24B49E570091542F /* Assets.xcassets in Resources */,
 				CEF8303824B49E510091542F /* Main.storyboard in Resources */,
+				CE7F3E9F24D44E3F00B63E64 /* hello.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
