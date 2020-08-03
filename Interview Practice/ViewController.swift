@@ -13,11 +13,23 @@ class ViewController: UIViewController {
     
     let imageView = UIImageView()
     var helloWorld: AVAudioPlayer?
+    let sean = User(name: "Sean")
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(playAudio))
+        
+        // ARC
+        
+        title = sean.name
+        
+        do {
+            let john = User(name: "John")
+            john.name = "Jonathan"
+        }
+        
         
         // Caching
         

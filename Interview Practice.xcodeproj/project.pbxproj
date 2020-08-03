@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CE7F3E9F24D44E3F00B63E64 /* hello.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE7F3E9E24D44E3F00B63E64 /* hello.mp3 */; };
+		CE964EF924D8551F0013112B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE964EF824D8551F0013112B /* User.swift */; };
 		CEF8303124B49E510091542F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF8303024B49E510091542F /* AppDelegate.swift */; };
 		CEF8303324B49E510091542F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF8303224B49E510091542F /* SceneDelegate.swift */; };
 		CEF8303524B49E510091542F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF8303424B49E510091542F /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		CE7F3E9E24D44E3F00B63E64 /* hello.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hello.mp3; sourceTree = "<group>"; };
+		CE964EF824D8551F0013112B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CEF8302D24B49E510091542F /* Interview Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Interview Practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF8303024B49E510091542F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEF8303224B49E510091542F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			children = (
 				CEF8303024B49E510091542F /* AppDelegate.swift */,
 				CEF8303224B49E510091542F /* SceneDelegate.swift */,
+				CE964EF824D8551F0013112B /* User.swift */,
 				CEF8303424B49E510091542F /* ViewController.swift */,
 				CEF8303624B49E510091542F /* Main.storyboard */,
 				CEF8303924B49E570091542F /* Assets.xcassets */,
@@ -271,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE964EF924D8551F0013112B /* User.swift in Sources */,
 				CEF8303524B49E510091542F /* ViewController.swift in Sources */,
 				CEF8303124B49E510091542F /* AppDelegate.swift in Sources */,
 				CEF8303324B49E510091542F /* SceneDelegate.swift in Sources */,
