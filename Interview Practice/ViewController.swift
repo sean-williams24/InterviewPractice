@@ -12,12 +12,25 @@ import UIKit
 class ViewController: UIViewController {
     
     let imageView = UIImageView()
-    var purrSound: AVAudioPlayer?
+    var helloWorld: AVAudioPlayer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(playPurr))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(playAudio))
+        
+        // Caching
+        
+        let cache = NSCache<NSString, ExpensiveObjectClass>()
+        let myObject: ExpensiveObjectClass
+        
+        if let cachedVersion = cache.object(forKey: "CachedObject") {
+            myObject = cachedVersion
+        } else {
+            myObject = ExpensiveObjectClass()
+            cache.setObject(myObject, forKey: "CachedObject")
+        }
+        
         
         // FileManager
         
@@ -113,15 +126,13 @@ class ViewController: UIViewController {
 
     // AVAudioPlayer
     
-    @objc func playPurr() {
+    @objc func playAudio() {
         let path = Bundle.main.path(forResource: "hello.mp3", ofType: nil)!
         let url = URL(fileURLWithPath: path)
-//        let asset = NSDataAsset(name: "hello")!
         
         do {
-            purrSound = try AVAudioPlayer(contentsOf: url)
-//            purrSound = try AVAudioPlayer(data: asset.data)
-            purrSound?.play()
+            helloWorld = try AVAudioPlayer(contentsOf: url)
+            helloWorld?.play()
         } catch {
             print(error.localizedDescription)
         }
@@ -130,3 +141,6 @@ class ViewController: UIViewController {
 
 
 
+class ExpensiveObjectClass {
+    
+}
