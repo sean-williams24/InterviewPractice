@@ -7,6 +7,7 @@
 //
 
 import AVFoundation
+import GameplayKit
 import UIKit
 
 class ViewController: UIViewController {
@@ -20,6 +21,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(playAudio))
+    
+        var doggy = lovely()
+        doggy.dog = "Sean"
+    
+        // Enum associated values
+        
+        let paigntonWeather = Weather.sunny(temp: 25)
+        print(paigntonWeather)
+        let londonWeather = Weather.raining(amount: "Heavy")
+        print("Weather in London is \(londonWeather)")
+        
         
         // ARC
         
@@ -155,4 +167,9 @@ class ViewController: UIViewController {
 
 class ExpensiveObjectClass {
     
+}
+
+struct lovely {
+    let cat = 4
+    var dog = "Barry"
 }

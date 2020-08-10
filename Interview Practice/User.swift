@@ -18,5 +18,22 @@ class User {
     
     deinit {
         print("Deallocating user: \(name)")
+        
     }
+}
+
+
+enum Weather {
+    case cloudy(coverage: String)
+    case sunny(temp: Int)
+    case raining(amount: String)
+    case windy(type: String)
+}
+
+
+enum Planet: Int {
+    case mercury
+    case venus
+    case earth
+    case mars
 }
