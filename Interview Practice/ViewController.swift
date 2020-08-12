@@ -8,6 +8,7 @@
 
 import AVFoundation
 import GameplayKit
+import Lottie
 import UIKit
 
 class ViewController: UIViewController {
@@ -21,9 +22,45 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(playAudio))
-    
-        var doggy = lovely()
-        doggy.dog = "Sean"
+        
+        // Lottie Animations
+        
+        let starAnimationView = AnimationView(name: "StarAnimation")
+        starAnimationView.backgroundColor = .blue
+        starAnimationView.play(fromFrame: 24, toFrame: 48)
+        starAnimationView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(starAnimationView)
+        
+        starAnimationView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        starAnimationView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        starAnimationView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        starAnimationView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
+        
+        // NSAttibutedString
+        
+        let fullString = NSMutableAttributedString(string: "Start of text")
+        
+        let imageAttachment = NSTextAttachment()
+        let seanImage = UIImage(named: "sean")
+        imageAttachment.image = seanImage
+        
+        let imageString = NSAttributedString(attachment: imageAttachment)
+        fullString.append(imageString)
+        fullString.append(NSAttributedString(string: "End of text"))
+        
+        let label = UILabel()
+        view.addSubview(label)
+
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
+        label.font = .boldSystemFont(ofSize: 10)
+        label.textColor = .cyan
+        
+//        label.attributedText = fullString
+        
     
         // Enum associated values
         
@@ -93,36 +130,42 @@ class ViewController: UIViewController {
         
         // CADisplayLink
         
-        let displayLink = CADisplayLink(target: self, selector: #selector(update))
-        displayLink.add(to: .current, forMode: .common)
+//        let displayLink = CADisplayLink(target: self, selector: #selector(update))
+//        displayLink.add(to: .current, forMode: .common)
         
 
         
         // Network Request
-        imageView.frame = view.frame
-        imageView.backgroundColor = .red
-        imageView.contentMode = .scaleAspectFill
-        view.addSubview(imageView)
-        
-        let url = URL(string: "https://media.resources.festicket.com/www/artists/ArianaGrande.jpg")
-        
-        URLSession.shared.dataTask(with: url!) { (data, response, error) in
-            guard error == nil else {
-                print(error?.localizedDescription as Any)
-                return
-            }
-            
-            if let data = data {
-                DispatchQueue.main.async {
-                    self.imageView.image = UIImage(data: data)
-                }
-            }
-        }.resume()
+//        imageView.frame = view.frame
+//        imageView.backgroundColor = .red
+//        imageView.contentMode = .scaleAspectFill
+//        view.addSubview(imageView)
+//
+//        let url = URL(string: "https://media.resources.festicket.com/www/artists/ArianaGrande.jpg")
+//
+//        URLSession.shared.dataTask(with: url!) { (data, response, error) in
+//            guard error == nil else {
+//                print(error?.localizedDescription as Any)
+//                return
+//            }
+//
+//            if let data = data {
+//                DispatchQueue.main.async {
+//                    self.imageView.image = UIImage(data: data)
+//                }
+//            }
+//        }.resume()
 
         swapTwoItems(&someInt, &anotherInt)
         print(someInt, anotherInt)
         swapTwoItems(&someString, &anotherString)
         print(someString, anotherString)
+
+//        view.bringSubviewToFront(label)
+        
+        print(sum(2, 5, 8))
+        
+        
 
     }
     
@@ -160,6 +203,13 @@ class ViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    
+    // variadic functions
+    
+    func sum(_ nums: Int...) -> Int {
+        return nums.reduce(0, +)
     }
 }
 
